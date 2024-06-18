@@ -23,3 +23,15 @@ class Solution:
 
 # Time Complexity - O(n) => n: length of nums
 # Space Complexity - O(n)
+
+
+def topKFrequent_nLognSortingSoln(nums: List[int], k: int) -> List[int]:
+    countHash = {}
+    for n in nums:
+        countHash[n] = 1+ countHash.get(n, 0)
+    result = []
+    numsSortedOnFreq = sorted(countHash, key=countHash.get, reverse=True)
+    return numsSortedOnFreq[:k]
+
+# Time Complexity - O(n*logn)
+# Space Complexity - O(n)
